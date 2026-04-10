@@ -3,170 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cenit Web - Agencia Digital Puebla | Soluciones Web Profesionales</title>
+    <title>CenitWeb</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%231b4d3e' stroke='%23ffffff' stroke-width='5'/><circle cx='50' cy='50' r='10' fill='%232ecc71'/></svg>" type="image/svg+xml">
     <style>
-        /* Estilos Globales */
+        :root {
+            --verde-cenit: #1b4d3e;
+            --verde-claro: #2ecc71;
+            --blanco: #ffffff;
+        }
+
         body {
-            font-family: 'Avenir', 'Avenir Next', sans-serif;
+            font-family: 'Avenir', 'Segoe UI', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
-            color: #1b4d3e;
+            background-color: var(--blanco);
+            color: var(--verde-cenit);
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Asegura que el body tenga al menos la altura de la ventana */
+            min-height: 100vh;
         }
 
-        main {
-            flex: 1; /* Permite que el contenido principal crezca y empuje el footer hacia abajo */
-            padding: 20px;
-        }
-
-        /* Cabecera (Header) */
+        /* --- HEADER CON DECORACIÓN DE BÚSQUEDA --- */
         header {
-            background-color: #ffffff;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
+            padding: 40px 20px;
+            text-align: center;
         }
 
-        /* Decoración de búsqueda simulada */
-        .search-container {
-            display: flex;
+        .search-decoration-box {
+            border: 2px solid var(--verde-cenit); /* Borde que enmarca el título */
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-flex;
             align-items: center;
-            flex-grow: 1; /* Toma el espacio disponible */
-            margin-right: 20px;
-            background-color: #f1f1f1;
-            padding: 10px 15px;
-            border-radius: 20px;
-            border: 1px solid #ccc;
+            gap: 15px;
+        }
+
+        .brand-name {
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: -1px;
         }
 
         .search-icon {
-            font-size: 1.2em;
-            color: #888;
-            margin-right: 10px;
+            font-size: 1.5rem;
+            opacity: 0.5;
         }
 
-        .search-text {
-            color: #888;
-            font-size: 0.9em;
-            pointer-events: none; /* No interactivo, solo decorativo */
-        }
-
-        .brand-container {
+        /* --- CONTENIDO PRINCIPAL --- */
+        main {
+            flex: 1;
             display: flex;
+            justify-content: center;
             align-items: center;
-            flex-shrink: 0; /* Evita que el logo se encoja */
-        }
-
-        .brand-logo {
-            width: 40px;
-            height: 40px;
-            margin-right: 15px;
-        }
-
-        .brand-text {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #1b4d3e;
-        }
-
-        /* Resto del contenido principal (Placeholder) */
-        .content-placeholder {
             text-align: center;
-            padding: 50px 0;
+            padding: 20px;
         }
 
-        /* Pie de Página (Footer) */
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- FOOTER CON INSTAGRAM --- */
         footer {
-            background-color: #1b4d3e; /* Fondo oscuro de la marca */
-            color: #ffffff;
-            padding: 20px 0;
+            padding: 40px 20px;
             text-align: center;
-            width: 100%;
+            border-top: 1px solid #eee;
         }
 
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .social-media-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .social-text {
-            font-size: 1.1em;
-            margin-right: 10px;
-        }
-
-        /* Icono de Instagram con el degradado oficial */
         .instagram-link {
+            display: inline-flex;
+            align-items: center;
             text-decoration: none;
-            color: inherit;
+            color: var(--verde-cenit);
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: opacity 0.3s;
         }
 
-        .instagram-icon-wrapper {
-            display: inline-block;
-            vertical-align: middle;
-            width: 30px;
-            height: 30px;
+        .instagram-link:hover {
+            opacity: 0.7;
+        }
+
+        .insta-icon-wrapper {
+            width: 35px;
+            height: 35px;
             background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
-            border-radius: 8px; /* Pequeño radio para que parezca el icono oficial */
-            position: relative;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
         }
 
-        /* El icono de glifo blanco dentro del wrapper */
-        .instagram-icon-wrapper svg {
+        .insta-icon-wrapper svg {
+            fill: white;
             width: 20px;
-            height: 20px;
-            fill: #ffffff;
-            position: absolute;
-            top: 5px;
-            left: 5px;
         }
 
-        .copyright-text {
-            font-size: 0.8em;
-            opacity: 0.8;
+        .copy {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            opacity: 0.5;
         }
-
     </style>
 </head>
 <body>
 
     <header>
-        <div class="search-container">
-            <span class="search-icon">&#128269;</span> <span class="search-text">Buscar soluciones web...</span>
-        </div>
-
-        <div class="brand-container">
-            <svg class="brand-logo" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%231b4d3e' stroke='%23ffffff' stroke-width='5'/><circle cx='50' cy='50' r='10' fill='%232ecc71'/></svg>
-            <span class="brand-text">CenitWeb</span>
+        <div class="search-decoration-box">
+            <span class="search-icon">🔍</span>
+            <span class="brand-name">CenitWeb</span>
         </div>
     </header>
 
     <main>
-        <div class="content-placeholder">
-            <h1>Bienvenido a CenitWeb</h1>
-            <p>Tu agencia digital en Puebla para soluciones web profesionales.</p>
-            <p>Estamos construyendo algo increíble.</p>
+        <div class="hero-content">
+            <h1>Estrategia Digital desde Puebla</h1>
+            <p>Diseños que venden</p>
         </div>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="social-media-container">
-                <span class="social-text">Síguenos:</span>
-                <a href="https://www.instagram.com/cenit_web/" target="_blank" class="instagram-link" title="Visita nuestro perfil de Instagram (cenit_web)">
-                    <div class="instagram-icon-wrapper">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.9c-41.4 0-75-33.6-75-75s33.6-75 75-75 75 33.6 75 75-33.6 75-75 75zm144.2-211.7c-21.6 0-39.1 17.5-39.1 39.1s17.5 39.1 39.1 39.1 39.1-17.5 39.1-39.1c0-21.6-17.5-39.1-39.1-39.1zM448 96v320c0 17.6-14.4 32-32 32H96c-17.6
+        <a href="https://www.instagram.com/cenit_web/" target="_blank" class="instagram-link">
+            <div class="insta-icon-wrapper">
+                <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.9c-41.4 0-75-33.6-75-75s33.6-75 75-75 75 33.6 75 75-33.6 75-75 75zm144.2-211.7c-21.6 0-39.1 17.5-39.1 39.1s17.5 39.1 39.1 39.1 39.1-17.5 39.1-39.1c0-21.6-17.5-39.1-39.1-39.1zM448 96v320c0 17.6-14.4 32-32 32H96c-17.6 0-32-14.4-32-32V96c0-17.6 14.4-32 32-32h320c17.6 0 32 14.4 32 32zm-32 320c0 30.6-25.4 56-56 56H152c-30.6 0-56-25.4-56-56V152c0-30.6 25.4-56 56-56h208c30.6 0 56 25.4 56 56v208z"/></svg>
+            </div>
+            @cenit_web
+        </a>
+        <div class="copy">
+            &copy; 2026 CenitWeb
+        </div>
+    </footer>
+
+</body>
+</html>
