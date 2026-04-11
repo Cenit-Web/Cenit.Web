@@ -12,209 +12,134 @@
             --verde-oscuro: #1b4d3e;
             --blanco: #ffffff;
             --gris-fondo: #f4f7f6;
-            --degradado: linear-gradient(135deg, #1b4d3e 0%, #2ecc71 100%);
+            --degradado: linear-gradient(135deg, #0d2b22 0%, #1b4d3e 100%);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
-        body {
-            background-color: var(--blanco);
-            color: #333;
-            line-height: 1.6;
-        }
+        body { background-color: var(--blanco); color: #333; line-height: 1.6; }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO TECNOLÓGICO CON BARRA DE BÚSQUEDA --- */
         .hero {
             background: var(--degradado);
+            position: relative;
+            overflow: hidden;
             color: white;
-            padding: 100px 20px;
+            padding: 120px 20px;
             text-align: center;
         }
 
+        /* Efecto de rejilla tecnológica de fondo */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(var(--verde-esmeralda) 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Barra de búsqueda que rodea el título */
+        .search-brand-container {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px 40px;
+            border-radius: 100px;
+            box-shadow: 0 0 30px rgba(46, 204, 113, 0.3);
+            margin-bottom: 25px;
+        }
+
+        .search-icon {
+            color: var(--verde-esmeralda);
+            font-size: 1.5rem;
+            margin-right: 20px;
+        }
+
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            letter-spacing: -1px;
+            margin: 0;
         }
 
         .hero p {
             font-size: 1.2rem;
-            opacity: 0.9;
+            opacity: 0.8;
+            margin-top: 15px;
         }
 
         /* --- CONTENEDOR GENERAL --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
 
-        h2 {
-            text-align: center;
-            color: var(--verde-oscuro);
-            margin-bottom: 40px;
-            font-size: 2rem;
-        }
+        h2 { text-align: center; color: var(--verde-oscuro); margin-bottom: 40px; font-size: 2rem; }
 
-        /* --- SECCIÓN SERVICIOS --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
+        /* --- SERVICIOS --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .card {
             background: var(--blanco);
             padding: 30px;
             border-radius: 15px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-bottom: 4px solid transparent;
             transition: 0.3s;
         }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(46, 204, 113, 0.2); }
+        .card i { font-size: 3rem; color: var(--verde-esmeralda); margin-bottom: 20px; }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-bottom: 4px solid var(--verde-esmeralda);
-        }
-
-        .card i {
-            font-size: 3rem;
-            color: var(--verde-esmeralda);
-            margin-bottom: 20px;
-        }
-
-        .card h3 { margin-bottom: 15px; }
-
-        /* --- SECCIÓN SOBRE NOSOTROS --- */
-        .about-section {
-            background-color: var(--gris-fondo);
-            border-radius: 20px;
-            padding: 50px;
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .about-section p {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
-
-        /* --- SECCIÓN CÓMO TRABAJAMOS --- */
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .process-step {
-            text-align: center;
-            padding: 20px;
-        }
-
+        /* --- PROCESO --- */
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .process-step { text-align: center; padding: 20px; }
         .process-step .icon-circle {
-            width: 80px;
-            height: 80px;
-            background: var(--blanco);
-            border: 2px solid var(--verde-esmeralda);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
-            color: var(--verde-esmeralda);
+            width: 80px; height: 80px; background: var(--blanco); border: 2px solid var(--verde-esmeralda);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px; font-size: 2rem; color: var(--verde-esmeralda);
         }
 
-        /* --- BOTÓN WHATSAPP --- */
-        .cta-section {
-            text-align: center;
-            padding: 80px 20px;
-        }
+        /* --- SOBRE NOSOTROS --- */
+        .about-section { background-color: var(--gris-fondo); border-radius: 20px; padding: 50px; text-align: center; margin: 40px 0; }
+        .about-section p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; }
 
+        /* --- WHATSAPP --- */
+        .cta-section { text-align: center; padding: 80px 20px; }
         .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            background-color: #25d366;
-            color: white;
-            padding: 18px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            transition: 0.3s;
+            display: inline-flex; align-items: center; background-color: #25d366; color: white;
+            padding: 18px 35px; border-radius: 50px; text-decoration: none; font-weight: bold;
+            font-size: 1.2rem; transition: 0.3s;
         }
-
-        .btn-whatsapp:hover {
-            transform: scale(1.05);
-            background-color: #1ebe57;
-        }
-
+        .btn-whatsapp:hover { transform: scale(1.05); background-color: #1ebe57; }
         .btn-whatsapp i { margin-right: 10px; font-size: 1.5rem; }
 
-        /* --- FOOTER OSCURO --- */
-        footer {
-            background-color: var(--verde-oscuro);
-            color: white;
-            padding: 60px 20px 20px;
-            text-align: center;
-        }
-
-        .footer-social {
-            margin-bottom: 30px;
-        }
-
+        /* --- FOOTER --- */
+        footer { background-color: #0a1f19; color: white; padding: 60px 20px 20px; text-align: center; }
         .insta-link {
-            display: inline-flex;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            background: rgba(255,255,255,0.1);
-            padding: 10px 20px;
-            border-radius: 10px;
-            transition: 0.3s;
+            display: inline-flex; align-items: center; color: white; text-decoration: none;
+            background: rgba(255,255,255,0.05); padding: 10px 20px; border-radius: 10px;
         }
-
-        .insta-link:hover { background: rgba(255,255,255,0.2); }
-
         .insta-icon {
-            width: 30px;
-            height: 30px;
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
+            width: 30px; height: 30px; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+            border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 10px;
         }
-
-        .insta-icon i { font-size: 18px; }
-
-        .copyright {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-        }
+        .copyright { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 30px; padding-top: 20px; font-size: 0.8rem; opacity: 0.6; }
     </style>
 </head>
 <body>
 
     <header class="hero">
-        <h1>Cenit.Web</h1>
-        <p>Impulsamos tu negocio al siguiente nivel digital</p>
+        <div class="hero-content">
+            <div class="search-brand-container">
+                <i class="fas fa-search search-icon"></i>
+                <h1>Cenit.Web</h1>
+            </div>
+            <p>Impulsamos tu negocio al siguiente nivel digital</p>
+        </div>
     </header>
 
     <div class="container">
@@ -237,12 +162,7 @@
             </div>
         </div>
 
-        <div class="about-section">
-            <h2>Sobre Cenit.Web</h2>
-            <p>Ubicados en <strong>Puebla, México</strong>, nos apasiona ayudar a los emprendedores a tener una presencia profesional en internet. Creamos herramientas digitales fáciles de usar que dan resultados reales.</p>
-        </div>
-
-        <h2>¿Cómo trabajamos?</h2>
+        <h2 style="margin-top: 60px;">¿Cómo trabajamos?</h2>
         <div class="process-grid">
             <div class="process-step">
                 <div class="icon-circle"><i class="fas fa-comments"></i></div>
@@ -261,10 +181,15 @@
             </div>
         </div>
 
+        <div class="about-section">
+            <h2>Sobre Cenit.Web</h2>
+            <p>Ubicados en <strong>Puebla, México</strong>, nos apasiona ayudar a los emprendedores a tener una presencia profesional en internet.</p>
+        </div>
+
         <div class="cta-section">
             <h2>¿Listo para empezar?</h2>
             <p style="margin-bottom: 25px;">Haz clic abajo y platiquemos por WhatsApp.</p>
-            <a href="https://wa.me/522225673684?text=Hola!%20Me%20interesa%20una%20cotización%20para%20mi%20negocio" class="btn-whatsapp" target="_blank">
+            <a href="https://wa.me/522225673684?text=Hola!%20Me%20interesa%20una%20cotización" class="btn-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i> Iniciar Cotización
             </a>
         </div>
@@ -273,9 +198,7 @@
     <footer>
         <div class="footer-social">
             <a href="https://www.instagram.com/cenit_web/" target="_blank" class="insta-link">
-                <div class="insta-icon">
-                    <i class="fab fa-instagram"></i>
-                </div>
+                <div class="insta-icon"><i class="fab fa-instagram"></i></div>
                 @cenit_web
             </a>
         </div>
