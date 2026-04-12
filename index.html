@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --verde-esmeralda-claro: #58ff9d; /* Verde esmeralda más vibrante y claro */
+            --verde-esmeralda-claro: #58ff9d; /* Tono neón/claro solicitado */
             --verde-esmeralda: #2ecc71;
             --verde-oscuro: #0a1f19;
             --blanco: #ffffff;
@@ -18,129 +18,142 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
-        body { background-color: var(--blanco); color: #333; line-height: 1.6; }
+        body { background-color: var(--blanco); color: #333; line-height: 1.6; overflow-x: hidden; }
 
-        /* --- HERO TECNOLÓGICO --- */
+        /* --- HERO TECNOLÓGICO CON BARRA DE BÚSQUEDA --- */
         .hero {
             background: var(--degradado-tech);
             position: relative;
             overflow: hidden;
             color: white;
-            padding: 100px 15px;
+            padding: 80px 15px;
             text-align: center;
         }
 
-        /* Rejilla tecnológica */
+        /* Efecto de rejilla tecnológica clara */
         .hero::before {
             content: "";
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: radial-gradient(var(--verde-esmeralda-claro) 0.5px, transparent 0.5px);
-            background-size: 30px 30px;
-            opacity: 0.2;
+            background-image: radial-gradient(var(--verde-esmeralda-claro) 0.6px, transparent 0.6px);
+            background-size: 25px 25px;
+            opacity: 0.25;
             z-index: 1;
         }
 
         .hero-content { position: relative; z-index: 2; }
 
-        /* Barra de búsqueda con resplandor claro */
         .search-brand-container {
             display: inline-flex;
             align-items: center;
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(88, 255, 157, 0.3);
-            padding: 12px 30px;
+            border: 1px solid rgba(88, 255, 157, 0.4);
+            padding: 10px 25px;
             border-radius: 100px;
             box-shadow: 0 0 25px rgba(88, 255, 157, 0.2);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .search-icon {
             color: var(--verde-esmeralda-claro);
-            font-size: 1.3rem;
-            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-right: 12px;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             letter-spacing: -1px;
             margin: 0;
-            color: white;
         }
 
-        /* Ajuste de eslogan para móvil */
         .hero p {
-            font-size: 0.95rem; /* Letras un poco más pequeñas */
+            font-size: 0.85rem; /* Pequeño para móvil */
             opacity: 0.9;
-            margin-top: 12px;
-            white-space: nowrap; /* Fuerza un solo renglón */
+            margin-top: 10px;
+            white-space: nowrap; /* Un solo renglón */
+            letter-spacing: 0.5px;
         }
 
         /* --- CONTENEDOR GENERAL --- */
-        .container { max-width: 1100px; margin: 0 auto; padding: 50px 20px; }
-        h2 { text-align: center; color: var(--verde-oscuro); margin-bottom: 40px; font-size: 1.8rem; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        h2 { text-align: center; color: var(--verde-oscuro); margin-bottom: 30px; font-size: 1.6rem; }
 
-        /* --- SERVICIOS --- */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        /* --- 1. SERVICIOS (Más importante) --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 50px; }
         .card {
             background: var(--blanco);
-            padding: 30px;
+            padding: 25px;
             border-radius: 15px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: 0.3s;
         }
         .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(46, 204, 113, 0.2); }
-        .card i { font-size: 2.5rem; color: var(--verde-esmeralda); margin-bottom: 15px; }
+        .card i { font-size: 2.2rem; color: var(--verde-esmeralda); margin-bottom: 15px; }
 
-        /* --- PROCESO --- */
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 50px; }
+        /* --- 2. CÓMO TRABAJAMOS --- */
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 50px; }
         .process-step { text-align: center; }
         .process-step .icon-circle {
-            width: 70px; height: 70px; background: var(--blanco); border: 2px solid var(--verde-esmeralda);
+            width: 65px; height: 65px; background: var(--blanco); border: 2px solid var(--verde-esmeralda);
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 15px; font-size: 1.8rem; color: var(--verde-esmeralda);
+            margin: 0 auto 12px; font-size: 1.6rem; color: var(--verde-esmeralda);
         }
 
-        /* --- SOBRE NOSOTROS --- */
-        .about-section { background-color: var(--gris-fondo); border-radius: 20px; padding: 40px 20px; text-align: center; margin: 40px 0; }
-        .about-section p { max-width: 800px; margin: 0 auto; font-size: 1rem; }
+        /* --- 3. SOBRE NOSOTROS --- */
+        .about-section { 
+            background-color: var(--gris-fondo); 
+            border-radius: 20px; 
+            padding: 40px 20px; 
+            text-align: center; 
+            margin: 40px 0;
+        }
+
+        .about-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--blanco);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+        }
+
+        .about-section p { max-width: 800px; margin: 0 auto; font-size: 0.95rem; }
 
         /* --- WHATSAPP --- */
-        .cta-section { text-align: center; padding: 60px 20px; }
+        .cta-section { text-align: center; padding: 40px 20px; }
         .btn-whatsapp {
             display: inline-flex; align-items: center; background-color: #25d366; color: white;
-            padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold;
-            font-size: 1.1rem; transition: 0.3s;
+            padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: bold;
+            font-size: 1rem; transition: 0.3s;
         }
         .btn-whatsapp:hover { transform: scale(1.05); }
-        .btn-whatsapp i { margin-right: 8px; font-size: 1.3rem; }
+        .btn-whatsapp i { margin-right: 8px; font-size: 1.2rem; }
 
-        /* --- FOOTER --- */
-        footer { background-color: var(--verde-oscuro); color: white; padding: 50px 20px 20px; text-align: center; }
+        /* --- FOOTER OSCURO --- */
+        footer { background-color: var(--verde-oscuro); color: white; padding: 40px 20px 20px; text-align: center; }
         .insta-link {
             display: inline-flex; align-items: center; color: white; text-decoration: none;
-            background: rgba(255,255,255,0.05); padding: 8px 18px; border-radius: 10px; font-size: 0.9rem;
+            background: rgba(255,255,255,0.05); padding: 8px 18px; border-radius: 10px; font-size: 0.85rem;
         }
         .insta-icon {
             width: 25px; height: 25px; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
             border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-right: 8px;
         }
-        /* Copyright en una sola línea para móvil */
         .copyright { 
             border-top: 1px solid rgba(255,255,255,0.1); 
-            margin-top: 30px; 
-            padding-top: 20px; 
-            font-size: 0.75rem; 
+            margin-top: 25px; 
+            padding-top: 15px; 
+            font-size: 0.7rem; 
             opacity: 0.6; 
             white-space: nowrap; 
         }
 
-        /* Ajustes específicos para pantallas muy pequeñas */
         @media (max-width: 480px) {
-            .hero h1 { font-size: 2.2rem; }
-            .search-brand-container { padding: 10px 20px; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero p { font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -157,6 +170,7 @@
     </header>
 
     <div class="container">
+        
         <h2>Nuestros Servicios</h2>
         <div class="services-grid">
             <div class="card">
@@ -176,7 +190,7 @@
             </div>
         </div>
 
-        <h2 style="margin-top: 50px;">¿Cómo trabajamos?</h2>
+        <h2>¿Cómo trabajamos?</h2>
         <div class="process-grid">
             <div class="process-step">
                 <div class="icon-circle"><i class="fas fa-comments"></i></div>
@@ -196,12 +210,12 @@
         </div>
 
         <div class="about-section">
+            <img src="https://lh3.googleusercontent.com/d/1e0n420_AGQueyIaKBOkzDgyPgWsvJoRe" alt="Cenit Web Team" class="about-photo">
             <h2>Sobre Cenit.Web</h2>
-            <p>Ubicados en <strong>Puebla, México</strong>, apasionados por crear presencia profesional en internet para emprendedores.</p>
+            <p>Ubicados en <strong>Puebla, México</strong>, somos apasionados por crear una presencia profesional en internet para todos los emprendedores.</p>
         </div>
 
         <div class="cta-section">
-            <h2>¿Listo para empezar?</h2>
             <a href="https://wa.me/522225673684?text=Hola!%20Me%20interesa%20una%20cotización" class="btn-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i> Iniciar Cotización
             </a>
